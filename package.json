@@ -1,5 +1,5 @@
 {
-  "name": "song-suggstr",
+  "name": "Moodify",
   "version": "1.0.0",
   "description": "Suggests songs based on your mood",
   "main": "server.js",
@@ -14,12 +14,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SongSugstr/songSugstr.git"
+    "url": "git+https://github.com/santanu23/Moodify.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SongSugstr/songSugstr/issues"
+    "url": "https://github.com/santanu23/Moodify/issues"
   },
-  "homepage": "https://github.com/SongSugstr/songSugstr#readme"
+  "homepage": "https://github.com/santanu23/Moodify#readme"
 }
