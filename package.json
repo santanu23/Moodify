@@ -1,0 +1,25 @@
+{
+  "name": "song-suggstr",
+  "version": "1.0.0",
+  "description": "Suggests songs based on your mood",
+  "main": "server.js",
+  "dependencies": {
+    "finalhandler": "^0.5.1",
+    "serve-static": "^1.11.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SongSugstr/songSugstr.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SongSugstr/songSugstr/issues"
+  },
+  "homepage": "https://github.com/SongSugstr/songSugstr#readme"
+}
