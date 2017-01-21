@@ -65,7 +65,7 @@
     context.fillStyle = "#AAA";
     context.fillRect(0, 0, canvas.width, canvas.height);
 
-    var data = canvas.toDataURL('image/png');
+    var data = canvas.toDataURL('application/octet-stream');
     photo.setAttribute('src', data);
   }
 
@@ -76,7 +76,26 @@
       canvas.height = height;
       context.drawImage(video, 0, 0, width, height);
 
-      var data = canvas.toDataURL('image/png');
+      var data = canvas.toDataURL('image/jpeg');
+      var dataToSend = makeblob(data);
+      var apiKey;
+      $.getJSON( "config.json", function( data ) {
+        apiKey = data.apiKey;
+        $.ajax({
+        beforeSend: function(request) {
+          request.setRequestHeader("Ocp-Apim-Subscription-Key", apiKey);
+        },
+        url: 'https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize',
+        type: 'POST',
+        processData: false,
+        contentType: 'application/octet-stream',
+        data: dataToSend,
+        success: function(data) {
+          console.log(data);
+        }
+     });
+      });
+      
       photo.setAttribute('src', data);
     } else {
       clearphoto();
@@ -85,3 +104,25 @@
 
   window.addEventListener('load', startup, false);
 })();
+
+makeblob = function (dataURL) {
+            var BASE64_MARKER = ';base64,';
+            if (dataURL.indexOf(BASE64_MARKER) == -1) {
+                var parts = dataURL.split(',');
+                var contentType = parts[0].split(':')[1];
+                var raw = decodeURIComponent(parts[1]);
+                return new Blob([raw], { type: contentType });
+            }
+            var parts = dataURL.split(BASE64_MARKER);
+            var contentType = parts[0].split(':')[1];
+            var raw = window.atob(parts[1]);
+            var rawLength = raw.length;
+
+            var uInt8Array = new Uint8Array(rawLength);
+
+            for (var i = 0; i < rawLength; ++i) {
+                uInt8Array[i] = raw.charCodeAt(i);
+            }
+
+            return new Blob([uInt8Array], { type: contentType });
+        }
