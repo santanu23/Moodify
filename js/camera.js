@@ -79,6 +79,7 @@
       var data = canvas.toDataURL('image/jpeg');
       var dataToSend = makeblob(data);
       var apiKey;
+      var mood;
       $.getJSON( "config.json", function( data ) {
         apiKey = data.apiKey;
         $.ajax({
@@ -91,7 +92,23 @@
         contentType: 'application/octet-stream',
         data: dataToSend,
         success: function(data) {
-          console.log(data);
+          var scores = data[0].scores;
+          for (var key in scores) {
+            if (!scores.hasOwnProperty(key)) continue;
+              var obj = scores[key];
+              //needs to be tweeked for different moods
+              if(obj > 0.75){
+                mood = key;
+              }              
+          }
+          $.get( "https://api.spotify.com/v1/search?q="+ mood +"&type=playlist&limit=1", function( data ) {
+            playlist = data.playlists.items[0].external_urls.spotify;
+            window.open(playlist,'_blank');
+          })
+
+          console.log(scores);
+          console.log("mood: " + mood);
+
         }
      });
       });
