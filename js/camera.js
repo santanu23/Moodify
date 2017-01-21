@@ -59,88 +59,10 @@
         clearphoto();
     }
 
-<<<<<<< HEAD:old/js/camera.js
-        video.play();
-      },
-      function(err) {
-        console.log("An error occured! " + err);
-      }
-    );
-
-    video.addEventListener('canplay', function(ev){
-      if (!streaming) {
-        height = video.videoHeight / (video.videoWidth/width);
-
-        video.setAttribute('width', width);
-        video.setAttribute('height', height);
-        canvas.setAttribute('width', width);
-        canvas.setAttribute('height', height);
-        streaming = true;
-      }
-    }, false);
-
-    startbutton.addEventListener('click', function(ev){
-      takepicture();
-      ev.preventDefault();
-    }, false);
-
-    clearphoto();
-  }
-
-  function clearphoto() {
-    var context = canvas.getContext('2d');
-    context.fillStyle = "#AAA";
-    context.fillRect(0, 0, canvas.width, canvas.height);
-
-    var data = canvas.toDataURL('application/octet-stream');
-    photo.setAttribute('src', data);
-  }
-
-  function takepicture() {
-    var context = canvas.getContext('2d');
-    if (width && height) {
-      canvas.width = width;
-      canvas.height = height;
-      context.drawImage(video, 0, 0, width, height);
-
-      var data = canvas.toDataURL('image/jpeg');
-      var dataToSend = makeblob(data);
-      var apiKey;
-      var mood;
-      $.getJSON( "config.json", function( data ) {
-        apiKey = data.apiKey;
-        $.ajax({
-        beforeSend: function(request) {
-          request.setRequestHeader("Ocp-Apim-Subscription-Key", apiKey);
-        },
-        url: 'https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize',
-        type: 'POST',
-        processData: false,
-        contentType: 'application/octet-stream',
-        data: dataToSend,
-        success: function(data) {
-          var scores = data[0].scores;
-          for (var key in scores) {
-            if (!scores.hasOwnProperty(key)) continue;
-              var obj = scores[key];
-              //needs to be tweeked for different moods
-              if(obj > 0.75) {
-                mood = key;
-              }
-          }
-          $.get( "https://api.spotify.com/v1/search?q="+ mood +"&type=playlist&limit=1", function( data ) {
-            playlist = data.playlists.items[0].external_urls.spotify;
-            window.open(playlist,'_blank');
-          })
-
-          console.log(scores);
-          console.log("mood: " + mood);
-=======
     function clearphoto() {
         var context = canvas.getContext('2d');
         context.fillStyle = "#AAA";
         context.fillRect(0, 0, canvas.width, canvas.height);
->>>>>>> origin/master:js/camera.js
 
         var data = canvas.toDataURL('application/octet-stream');
         photo.setAttribute('src', data);
