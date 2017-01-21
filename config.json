@@ -1,3 +1,4 @@
 {
-	"apiKey": "APIKEY HERE"
+    "apiKey": "APIKEY HERE",
+    "port": 8000
 }
