@@ -77,7 +77,7 @@
 
             var data = canvas.toDataURL('image/jpeg');
             var dataToSend = makeblob(data);
-            var apiKey;
+            var apiKey = "33d954e65f3c4856b53624c6cb27e05b";
             var mood;
             $.getJSON("config.json", function(data) {
                 apiKey = data.apiKey;

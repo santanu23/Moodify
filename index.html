@@ -1,29 +1,52 @@
-<!doctype html>
-<html>
-<head>
-	<title>WebRTC: Still photo capture demo</title>
-	<meta charset='utf-8'>
-	<script src="js/camera.js">
-	</script>
+<!DOCTYPE html>
+<!-- saved from url=(0066)http://materializecss.com/templates/parallax-template/preview.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>Moodify</title>
+
+  <!-- CSS  -->
+  <link href="./icon" rel="stylesheet">
+  <link href="./css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="./css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <script src="js/camera.js">
+  </script>
 </head>
 <body>
-<div class="contentarea">
-	<h1>
-		Song Suggestor
-	</h1>
-	<p>
-    Suggests a song
-	</p>
-  <div class="camera">
-    <video id="video">Video stream not available.</video>
-    <button id="startbutton">Take photo</button>
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2">Moodify</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">Want a Spotify Playlist?</h5>
+        </div>
+        <div class="row center">
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="./background1.jpg" alt="Unsplashed background img 1" style="display: block; transform: translate3d(-50%, 215px, 0px);"></div>
   </div>
-  <canvas id="canvas">
-  </canvas>
-  <div class="output">
-    <img id="photo" alt="The screen capture will appear in this box.">
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="contentarea">
+      <div class="camera">
+          <video id="video">Video stream not available.</video>
+          <button id="startbutton" class="btn-large waves-effect waves-light teal lighten-1">Get Playlist</button>
+        </div>
+          <canvas id="canvas">
+          </canvas>
+    </div>
   </div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
-</body>
-</html>
+
+  <!--  Scripts-->
+  <script src="./js/jquery-2.1.1.min.js"></script>
+  <script src="./js/materialize.js"></script>
+  <script src="./js/init.js"></script>
