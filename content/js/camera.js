@@ -98,7 +98,7 @@
                             if (obj > 0.7) {
                                 mood = key;
                             }
-                            if (key == 'anger' || key == 'fear'){
+                            if (key == 'anger' || key == 'fear' || key == 'sadness'){
                                 if (obj > 0.3) {
                                     mood = key;
                                 }
@@ -110,7 +110,7 @@
                         } 
                         else{
                             if (mood == 'neutral'){
-                                mood = 'chilldd';
+                                mood = 'chill';
                             }
                             var numberOfPlaylists = 5;
                             var selectedPlaylist = Math.floor(Math.random() * numberOfPlaylists);
