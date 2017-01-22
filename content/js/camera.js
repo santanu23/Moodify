@@ -56,6 +56,9 @@
             ev.preventDefault();
         }, false);
 
+        showMood();
+        setInterval(showMood, 5000);
+
         clearphoto();
     }
 
@@ -68,7 +71,7 @@
         photo.setAttribute('src', data);
     }
 
-    function takepicture() {
+    function takepicture(cb) {
         var context = canvas.getContext('2d');
         if (width && height) {
             canvas.width = width;
@@ -79,8 +82,8 @@
             var dataToSend = makeblob(data);
             var apiKey = "33d954e65f3c4856b53624c6cb27e05b";
             var mood;
-            //$.getJSON("/config.json", function(data) {
-              //  apiKey = data.apiKey;
+            $.getJSON("/config.json", function(data) {
+                apiKey = data.apiKey;
                 $.ajax({
                     beforeSend: function(request) {
                         request.setRequestHeader("Ocp-Apim-Subscription-Key", apiKey);
@@ -105,9 +108,14 @@
                             }
                             //needs to be tweeked for different moods
                         }
+
+                        if (cb) {
+                          return cb(mood);
+                        }
+
                         if (!mood){
                             alert('Please show more emotion');
-                        } 
+                        }
                         else{
                             if (mood == 'neutral'){
                                 mood = 'chilldd';
@@ -119,18 +127,40 @@
                                 window.open(playlist, '_blank');
                             })
 
-                        }                        
+                        }
                         console.log(scores);
                         console.log("mood: " + mood);
 
                     }
                 });
-            //});
-
-            photo.setAttribute('src', data);
+            });
         } else {
             clearphoto();
         }
+    }
+
+    function showMood() {
+      takepicture(function(mood) {
+        if (mood) {
+          var moodHeader = $("#mood");
+
+          if (mood === "happiness") {
+            moodHeader.html("You are happy 😄");
+          } else if (mood === "anger") {
+            moodHeader.html("You are angry 😡");
+          } else if (mood === "fear") {
+            moodHeader.html("You are scared 😵");
+          } else if (mood === "disgust") {
+            moodHeader.html("You are digusted 😷");
+          } else if (mood === "neutral") {
+            moodHeader.html("You are neutral 😐");
+          } else if (mood === "sadness") {
+            moodHeader.html("You are sad 😭");
+          } else if (mood === "surprise") {
+            moodHeader.html("You are surprised 😱");
+          }
+        }
+      });
     }
 
     window.addEventListener('load', startup, false);
