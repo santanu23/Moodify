@@ -71,3 +71,8 @@ footer.page-footer {
  height: 5%;
  min-height: 0px;
 }
+
+#video{
+  margin-bottom: 10px;
+  margin-top: 10px;
+}

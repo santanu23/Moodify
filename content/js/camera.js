@@ -1,5 +1,5 @@
 (function() {
-    var width = 700; // Scale width to this
+    var width = 600; // Scale width to this
     var height = 0; // Compute based on input stream
 
     var streaming = false;
@@ -95,16 +95,31 @@
                         for (var key in scores) {
                             if (!scores.hasOwnProperty(key)) continue;
                             var obj = scores[key];
-                            //needs to be tweeked for different moods
-                            if (obj > 0.75) {
+                            if (obj > 0.7) {
                                 mood = key;
                             }
+                            if (key == 'anger' || key == 'fear'){
+                                if (obj > 0.3) {
+                                    mood = key;
+                                }
+                            }
+                            //needs to be tweeked for different moods
                         }
-                        $.get("https://api.spotify.com/v1/search?q=" + mood + "&type=playlist&limit=1", function(data) {
-                            playlist = data.playlists.items[0].external_urls.spotify;
-                            window.open(playlist, '_blank');
-                        })
+                        if (!mood){
+                            alert('Please show more emotion');
+                        } 
+                        else{
+                            if (mood == 'neutral'){
+                                mood = 'chilldd';
+                            }
+                            var numberOfPlaylists = 5;
+                            var selectedPlaylist = Math.floor(Math.random() * numberOfPlaylists);
+                            $.get("https://api.spotify.com/v1/search?q=" + mood + "&type=playlist&limit=5", function(data) {
+                                playlist = data.playlists.items[selectedPlaylist].external_urls.spotify;
+                                window.open(playlist, '_blank');
+                            })
 
+                        }                        
                         console.log(scores);
                         console.log("mood: " + mood);
 
