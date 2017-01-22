@@ -4,7 +4,7 @@ var finalhandler = require('finalhandler');
 var serveStatic = require('serve-static');
 var config = require('./config');
 
-var serve = serveStatic("./");
+var serve = serveStatic("./content");
 
 var server = http.createServer(function(req, res) {
   var done = finalhandler(req, res);
