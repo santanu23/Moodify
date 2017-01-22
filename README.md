@@ -1,10 +1,10 @@
 # Moodify
 
-Moodify reccomnends songs on Spotify based on your mood
+Moodify is a web application that recommends songs on Spotify based on your mood. It utilizes Microsoft's cognitive services to obtain your mood based on your facial expression. It will then recommend you a random playlist based on your current emotion.
 
-## Link
+## Demo
 
-https://santanu23.github.io/Moodify
+[Moodify](http://moodifyy.com/)
 
 ## Usage
 ```
