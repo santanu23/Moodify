@@ -62,3 +62,12 @@ footer.page-footer {
 #photo{
   display:none;
 }
+
+#startbutton{
+ display:block;
+}
+
+#index-banner{
+ height: 5%;
+ min-height: 0px;
+}

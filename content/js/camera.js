@@ -1,5 +1,5 @@
 (function() {
-    var width = 400; // Scale width to this
+    var width = 700; // Scale width to this
     var height = 0; // Compute based on input stream
 
     var streaming = false;
