@@ -55,3 +55,10 @@ p {
 footer.page-footer {
   margin: 0;
 }
+
+#canvas{
+  display:none;
+}
+#photo{
+  display:none;
+}
