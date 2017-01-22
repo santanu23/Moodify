@@ -1,5 +1,5 @@
 (function() {
-    var width = 320; // Scale width to this
+    var width = 400; // Scale width to this
     var height = 0; // Compute based on input stream
 
     var streaming = false;
@@ -79,8 +79,8 @@
             var dataToSend = makeblob(data);
             var apiKey = "33d954e65f3c4856b53624c6cb27e05b";
             var mood;
-            $.getJSON("config.json", function(data) {
-                apiKey = data.apiKey;
+            //$.getJSON("/config.json", function(data) {
+              //  apiKey = data.apiKey;
                 $.ajax({
                     beforeSend: function(request) {
                         request.setRequestHeader("Ocp-Apim-Subscription-Key", apiKey);
@@ -110,7 +110,7 @@
 
                     }
                 });
-            });
+            //});
 
             photo.setAttribute('src', data);
         } else {
