@@ -2,6 +2,19 @@
 
 Moodify is a web application that recommends songs on Spotify based on your mood. It utilizes Microsoft's cognitive services to obtain your mood based on your facial expression. It will then recommend you a random playlist based on your current emotion.
 
+## Screenshots
+### Happy
+![Input](/demo/Happy.jpg)
+![Result](/demo/HappyResult.png)
+
+### Sad
+![Input](/demo/sad.jpg)
+![Result](/demo/sadResult.png)
+
+### Anger
+![Input](/demo/angry.jpg)
+![Result](/demo/angryResult.png)
+
 ## Demo
 
 [Moodify](http://moodifyy.com/)
