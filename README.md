@@ -11,3 +11,6 @@ Moodify is a web application that recommends songs on Spotify based on your mood
 npm install
 npm start
 ```
+# Submission
+Moodify was created for UoftHacks IV.
+View the submission [here](https://uofthacks-iv.hackerearth.com/sprints/uofthacks-iv/dashboard/GooseWarriors/submission/)
