@@ -17,7 +17,7 @@ Moodify is a web application that recommends songs on Spotify based on your mood
 
 ## Demo
 
-[Moodify](http://moodifyy.com/)
+[Moodify](https://www.youtube.com/watch?v=HZS3CxPtG6E)
 
 ## Usage
 ```
