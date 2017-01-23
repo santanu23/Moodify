@@ -76,3 +76,12 @@ footer.page-footer {
   margin-bottom: 10px;
   margin-top: 10px;
 }
+
+h1.header{
+  color:#00E676;
+}
+
+#startbutton{
+  background-color:#00E676 !important;
+  color:#000000 !important;
+}
